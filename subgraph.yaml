@@ -8,11 +8,11 @@ dataSources:
     name: Vault
     network: mumbai
     source:
-      address: '0x2d8Aebe5362D2a9f637D6a4D593490Cf3b71f9cf'
+      address: '0x5c30ca03b32AE80E37C8e083C87773058b5E3cf8'
       abi: Vault
       startBlock: 15963000
     mapping:
-      kind: ethereum/events
+      kind: ethereum/eve
       apiVersion: 0.0.4
       language: wasm/assemblyscript
       file: ./src/mappings/vault.ts
@@ -43,7 +43,7 @@ dataSources:
     name: WeightedPoolFactory
     network: mumbai
     source:
-      address: '0x3Ea41BdDD8Ad496bcb5126684fEE12e1F8f0b0FC'
+      address: '0xb77c2e6E609B1e4e722c99e67690a369D716c2B3'
       abi: WeightedPoolFactory
       startBlock: 15963000
     mapping:
@@ -70,7 +70,7 @@ dataSources:
     name: WeightedPool2TokenFactory
     network: mumbai
     source:
-      address: '0x3Ea41BdDD8Ad496bcb5126684fEE12e1F8f0b0FC'
+      address: '0xb77c2e6E609B1e4e722c99e67690a369D716c2B3'
       abi: WeightedPoolFactory
       startBlock: 15963000
     mapping:
