@@ -212,6 +212,15 @@ export class Pool extends Entity {
     }
   }
 
+  get swapEnabled(): boolean {
+    let value = this.get("swapEnabled");
+    return value.toBoolean();
+  }
+
+  set swapEnabled(value: boolean) {
+    this.set("swapEnabled", Value.fromBoolean(value));
+  }
+
   get swapFee(): BigDecimal {
     let value = this.get("swapFee");
     return value.toBigDecimal();
@@ -421,6 +430,23 @@ export class Pool extends Entity {
         "historicalValues",
         Value.fromStringArray(value as Array<string>)
       );
+    }
+  }
+
+  get weightUpdates(): Array<string> | null {
+    let value = this.get("weightUpdates");
+    if (value === null) {
+      return null;
+    } else {
+      return value.toStringArray();
+    }
+  }
+
+  set weightUpdates(value: Array<string> | null) {
+    if (value === null) {
+      this.unset("weightUpdates");
+    } else {
+      this.set("weightUpdates", Value.fromStringArray(value as Array<string>));
     }
   }
 
@@ -860,6 +886,91 @@ export class UserInternalBalance extends Entity {
 
   set balance(value: BigDecimal) {
     this.set("balance", Value.fromBigDecimal(value));
+  }
+}
+
+export class GradualWeightUpdate extends Entity {
+  constructor(id: string) {
+    super();
+    this.set("id", Value.fromString(id));
+  }
+
+  save(): void {
+    let id = this.get("id");
+    assert(id !== null, "Cannot save GradualWeightUpdate entity without an ID");
+    assert(
+      id.kind == ValueKind.STRING,
+      "Cannot save GradualWeightUpdate entity with non-string ID. " +
+        'Considering using .toHex() to convert the "id" to a string.'
+    );
+    store.set("GradualWeightUpdate", id.toString(), this);
+  }
+
+  static load(id: string): GradualWeightUpdate | null {
+    return store.get("GradualWeightUpdate", id) as GradualWeightUpdate | null;
+  }
+
+  get id(): string {
+    let value = this.get("id");
+    return value.toString();
+  }
+
+  set id(value: string) {
+    this.set("id", Value.fromString(value));
+  }
+
+  get poolId(): string {
+    let value = this.get("poolId");
+    return value.toString();
+  }
+
+  set poolId(value: string) {
+    this.set("poolId", Value.fromString(value));
+  }
+
+  get scheduledTimestamp(): i32 {
+    let value = this.get("scheduledTimestamp");
+    return value.toI32();
+  }
+
+  set scheduledTimestamp(value: i32) {
+    this.set("scheduledTimestamp", Value.fromI32(value));
+  }
+
+  get startTimestamp(): i32 {
+    let value = this.get("startTimestamp");
+    return value.toI32();
+  }
+
+  set startTimestamp(value: i32) {
+    this.set("startTimestamp", Value.fromI32(value));
+  }
+
+  get endTimestamp(): i32 {
+    let value = this.get("endTimestamp");
+    return value.toI32();
+  }
+
+  set endTimestamp(value: i32) {
+    this.set("endTimestamp", Value.fromI32(value));
+  }
+
+  get startWeights(): Array<BigInt> {
+    let value = this.get("startWeights");
+    return value.toBigIntArray();
+  }
+
+  set startWeights(value: Array<BigInt>) {
+    this.set("startWeights", Value.fromBigIntArray(value));
+  }
+
+  get endWeights(): Array<BigInt> {
+    let value = this.get("endWeights");
+    return value.toBigIntArray();
+  }
+
+  set endWeights(value: Array<BigInt>) {
+    this.set("endWeights", Value.fromBigIntArray(value));
   }
 }
 

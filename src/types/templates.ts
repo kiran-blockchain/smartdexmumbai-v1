@@ -47,3 +47,17 @@ export class ConvergentCurvePool extends DataSourceTemplate {
     );
   }
 }
+
+export class LiquidityBootstrappingPool extends DataSourceTemplate {
+  static create(address: Address): void {
+    DataSourceTemplate.create("LiquidityBootstrappingPool", [address.toHex()]);
+  }
+
+  static createWithContext(address: Address, context: DataSourceContext): void {
+    DataSourceTemplate.createWithContext(
+      "LiquidityBootstrappingPool",
+      [address.toHex()],
+      context
+    );
+  }
+}
