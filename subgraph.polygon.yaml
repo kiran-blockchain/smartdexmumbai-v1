@@ -1,4 +1,4 @@
-specVersion: 0.0.2
+specVersion: 0.0.1
 description: Balancer is a non-custodial portfolio manager, liquidity provider, and price sensor.
 repository: https://github.com/balancer-labs/balancer-subgraph-v2
 schema:
@@ -10,10 +10,10 @@ dataSources:
     source:
       address: "0xBA12222222228d8Ba445958a75a0704d566BF2C8"
       abi: Vault
-      startBlock: 15832990
+      startBlock: 15832987
     mapping:
       kind: ethereum/events
-      apiVersion: 0.0.4
+      apiVersion: 0.0.5
       language: wasm/assemblyscript
       file: ./src/mappings/vault.ts
       entities:
