@@ -43,7 +43,7 @@ function createNewWeightedPool(event: PoolCreated): string {
     let tokens = tokensCall.value.value0;
     let tokensList = pool.tokensList;
 
-    for (let i: i32 = 0; i < tokens.length; i++) {
+    for (let i = 0; i < tokens.length; i++) {
       let tokenAddress = tokens[i];
 
       if (tokensList.indexOf(tokenAddress) == -1) {
@@ -103,7 +103,7 @@ export function handleNewStablePool(event: PoolCreated): void {
     let tokens = tokensCall.value.value0;
     pool.tokensList = tokens as Bytes[];
 
-    for (let i: i32 = 0; i < tokens.length; i++) {
+    for (let i = 0; i < tokens.length; i++) {
       createPoolTokenEntity(poolId.toHexString(), tokens[i]);
     }
   }
@@ -163,7 +163,7 @@ export function handleNewCCPPool(event: PoolCreated): void {
     let tokens = tokensCall.value.value0;
     let tokensList = pool.tokensList;
 
-    for (let i: i32 = 0; i < tokens.length; i++) {
+    for (let i= 0; i < tokens.length; i++) {
       let tokenAddress = tokens[i];
 
       if (tokensList.indexOf(tokenAddress) == -1) {

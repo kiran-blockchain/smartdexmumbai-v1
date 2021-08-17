@@ -1,5 +1,5 @@
 specVersion: 0.0.2
-description: Balancer is a non-custodial portfolio manager, liquidity provider, and price sensor.
+description: Smart Dex is a non-custodial portfolio manager, liquidity provider, and price sensor.
 repository: https://github.com/kiran-blockchain/smartdexmumbai-v1
 schema:
   file: ./schema.graphql
@@ -10,7 +10,7 @@ dataSources:
     source:
       address: '0x8f001D9D48578c9F4C28bE088f4455B49c6F4d90'
       abi: Vault
-      startBlock: 17944260
+      startBlock: 18093551
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -45,7 +45,7 @@ dataSources:
     source:
       address: '0xd5D2F649889d2c8538FD2d68B200a07D92bAbD40'
       abi: WeightedPoolFactory
-      startBlock: 17944260
+      startBlock: 18093551
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -72,7 +72,7 @@ dataSources:
     source:
       address: '0x232AFb3cbd955bb22a9E1a9Ad7E70AD50119f619'
       abi: WeightedPoolFactory
-      startBlock: 17944260
+      startBlock: 18093551
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -99,7 +99,7 @@ dataSources:
     source:
       address: '0x5f5552F6A3e1a6AFc896505d2f4Fb311cb870a19'
       abi: StablePoolFactory
-      startBlock: 17944260
+      startBlock: 18093551
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
